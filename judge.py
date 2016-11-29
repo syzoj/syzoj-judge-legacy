@@ -40,9 +40,9 @@ def compile_src(source, language, des):
     
     output = ""
     if language == "C++":
-        output = subprocess.check_output("g++ " + source_file + " -o " + exe_file + " -O2 -lm -DONLINE_JUDGE || true", shell=True, stderr=subprocess.STDOUT)
+        output = subprocess.check_output("g++ " + source_file + " -o " + exe_file + " -O2 -lm -DONLINE_JUDGE -fdiagnostics-color=always || true", shell=True, stderr=subprocess.STDOUT)
     elif language == "C":
-        output = subprocess.check_output("gcc " + source_file + " -o " + exe_file + " -O2 -lm -DONLINE_JUDGE || true", shell=True, stderr=subprocess.STDOUT)
+        output = subprocess.check_output("gcc " + source_file + " -o " + exe_file + " -O2 -lm -DONLINE_JUDGE -fdiagnostics-color=always || true", shell=True, stderr=subprocess.STDOUT)
     elif language == "Pascal":
         output = subprocess.check_output("fpc " + source_file + " -O2 || true", shell=True, stderr=subprocess.STDOUT)
         os.system("mv " + des + "_tmp " + des)
